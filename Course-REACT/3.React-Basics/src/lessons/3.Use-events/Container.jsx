@@ -1,20 +1,39 @@
 export default function Container() {
 
+  function handleClick(e){
+    console.log("click !");
+  }
+
+  function handleClickWithId(id){
+    console.log(id);
+  }
+
+  function handleClickWithIdAndEventObjet(e,id){
+    console.log(e,id);
+  }
+
   return (
     <div>
-      <h1>Utiliser des évènements</h1>
-      {/* On peut ajouter un évènement directement dans le JSX avec une fonction anonyme, mais ce n'est pas pratique s'il y a beaucoup de code */}
+      <h1>Use Events</h1>
+      {/* You can add an event directly in JSX with an anonymous function, but it is not practical if there is a lot of code */}
+      <button onClick={() => console.log("click !")}>Click</button>
+      {/* Bad practice, not very maintainable */}
+      <button onClick={() => {
+        console.log("click !")
+        console.log("click !")
+        console.log("click !")
+        console.log("click !")
+        console.log("click !")
+      }}>Click</button>
 
-      {/* Mauvaise pratique, peu maintenable */}
+      {/* We generally prefer this */}
+      <button onClick={handleClick}>Click</button>
 
+      {/* Be careful, if you want to pass an argument, you must use an anonymous function */}
+      <button onClick={() => handleClickWithId(123445)}>Click</button>
 
-      {/* On lui préfère en général ceci */}
-
-
-      {/* Attention, si on veut passer un argument, il faut obligatoirement utiliser une fonction anonyme */}
-
-
-      {/* Si on veut l'objet d'évènement ET passer un ou des arguments, on code ceci */}
+      {/* If we want the event object AND pass one or more arguments, we code this */}
+      <button onClick={e => handleClickWithIdAndEventObjet(e, 1234)}>Click</button>
 
     </div>
   )
