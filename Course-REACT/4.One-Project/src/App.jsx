@@ -3,11 +3,7 @@ import { nanoid } from "nanoid";
 import ListItem from "./components/ListItem";
 
 function App() {
-  const [todoList, setTodoList] = useState([
-    { id: nanoid(8), content: "item 1" },
-    { id: nanoid(8), content: "item 2" },
-    { id: nanoid(8), content: "item 3" },
-  ]);
+  const [todoList, setTodoList] = useState([]);
   const [todo, setTodo] = useState("");
   const [showValidation, setShowValidation] = useState(false)
 

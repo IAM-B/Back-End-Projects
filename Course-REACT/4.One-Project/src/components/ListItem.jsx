@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 export default function ListItem({ deleteTodo, itemData }) {
   return (
     <li className="p-2 bg-zinc-200 mb-2 rounded flex">
@@ -11,3 +13,12 @@ export default function ListItem({ deleteTodo, itemData }) {
     </li>
   );
 }
+
+ListItem.propTypes = {
+  itemData: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    content: PropTypes.string.isRequired,
+
+  }).isRequired,
+  deleteTodo: PropTypes.func.isRequired,
+};
